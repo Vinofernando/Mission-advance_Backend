@@ -37,9 +37,6 @@ router.get('/movie', async (req, res) => {
       query += ` WHERE ` + conditions.join(' AND ')
     }
 
-    // Tambahkan pengurutan biar hasil rapi
-    query += ` ORDER BY m.movie_title ASC`
-
     const result = await pool.query(query, values)
     res.json(result.rows)
 
